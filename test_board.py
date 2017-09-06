@@ -14,8 +14,13 @@ def test_when_a_user_supplies_4_rows_a_4x4_board_is_created():
     game_board = Board()
     game_board.new_game(4)
     assert game_board.board_state == [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-'''
-def test_update_state_can_modify_board_state():
+
+# must test 'sad' path for new_game by passing in a value less then 3
+
+def test_when_a_user_picks_a_spot_board_is_displayed_with_their_symbol_at_spot():
     game_board = Board()
-    game_board.update_state()
-'''
+    player1 = 'X'
+    spot = 1
+    game_board.new_game()
+    game_board.update_state(game_board.board_state, player1, spot)
+    assert game_board.board_state == ["X", " ", " ", " ", " ", " ", " ", " ", " "]
