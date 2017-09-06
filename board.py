@@ -15,6 +15,3 @@ class Board:
     def display_board(self):
         return self.board_state[0] + " | " + self.board_state[1] + " | " + self.board_state[2] + "\n" +"=========" + "\n" + self.board_state[3] + " | " + self.board_state[4] + " | " + self.board_state[5] + "\n" + "=========" + "\n" + self.board_state[6] + " | " + self.board_state[7] + " | " + self.board_state[8]
 
-if __name__ == "__main__":
-    game_board = Board()
-    game_board.new_game()
