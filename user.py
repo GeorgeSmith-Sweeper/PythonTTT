@@ -18,3 +18,4 @@ def get_input(choice):
 def spot_choice():
     response = int(get_input("Choose number from 1-9: "))
     return response
+
