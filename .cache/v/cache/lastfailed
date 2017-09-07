@@ -1,1 +1,3 @@
-{}
+{
+  "test_user.py::test_when_player1_selects_a_spot_the_board_is_displayed_with_spot": true
+}
