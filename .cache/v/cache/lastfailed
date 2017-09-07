@@ -1,3 +1,4 @@
 {
-  "test_user.py::test_when_player1_selects_a_spot_the_board_is_displayed_with_spot": true
+  "test_user.py::test_when_player1_selects_a_spot_the_board_is_displayed_with_spot": true,
+  "test_user.py::test_when_player_makes_a_move_their_choice_is_saved": true
 }
