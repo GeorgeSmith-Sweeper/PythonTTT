@@ -1,5 +1,5 @@
 import pytest
-from board import Board
+from board import Board, spot_exists
 
 def test_board_state_is_a_list():
     game_board = Board()
@@ -29,19 +29,19 @@ def test_when_a_user_picks_a_spot_smaller_then_exists_spot_exists_is_False():
     game_board = Board()
     spot = -1
     game_board.new_game()
-    assert game_board.spot_exists(game_board.board_state, spot) == False
+    assert spot_exists(game_board.board_state, spot) == False
 
 def test_when_a_user_picks_a_spot_larger_then_exists_spot_exists_is_False():
     game_board = Board()
     game_board.new_game()
     spot = len(game_board.board_state) 
-    assert game_board.spot_exists(game_board.board_state, spot) == False
+    assert spot_exists(game_board.board_state, spot) == False
 
 def test_when_a_user_picks_a_spot_that_exists_spot_exists_is_True():
     game_board = Board()
     game_board.new_game()
     spot = 1 
-    assert game_board.spot_exists(game_board.board_state, spot) == True
+    assert spot_exists(game_board.board_state, spot) == True
     
 def test_when_a_user_picks_an_occupied_spot_is_occupied_will_be_True():
     game_board = Board()
