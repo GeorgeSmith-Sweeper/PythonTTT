@@ -1,6 +1,9 @@
 class Board:
+    '''
     def __init__(self):
         self.board_state = []
+    '''
+    board_state = []
 
     def update_state(self, current_state, player, spotchoice):
         new_state = current_state
@@ -21,8 +24,9 @@ class Board:
     def display_board(self):
         return self.board_state[0] + " | " + self.board_state[1] + " | " + self.board_state[2] + "\n" +"=========" + "\n" + self.board_state[3] + " | " + self.board_state[4] + " | " + self.board_state[5] + "\n" + "=========" + "\n" + self.board_state[6] + " | " + self.board_state[7] + " | " + self.board_state[8]
 
-def spot_exists(current_state, spotChoice):
-    if (spotChoice - 1) >= 0 and spotChoice < len(current_state):
+def spot_exists(current_board_state, spotChoice):
+    if (spotChoice - 1) >= 0 and spotChoice < len(current_board_state):
         return True
     else:
+        print(current_board_state)
         return False
