@@ -1,4 +1,4 @@
-from board import Board, spot_exists
+from board import Board, spot_exists, is_occupied
 
 class User:
     current_player = 'X' 
@@ -18,13 +18,10 @@ def spot_choice():
     if response in spot_list:
         response = int(response)
     else:
-        print('invalid choice')
-        spot_choice()
-
-    if spot_exists(Board.board_state, response) and is_occupied(Board.board_state, response) == False):
+        return 'invalid choice'
+    if spot_exists(Board.board_state, response) and is_occupied(Board.board_state, response) == False:
         Board.update_state(Board.board_state, User.current_player, response)
     else:
-        print("spot is occupied")
-        spot_choice()
+        return 'spot is occupied'
     return response
-        
+       
