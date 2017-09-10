@@ -10,10 +10,11 @@ def get_input(choice):
     return input(choice)
 
 # may not be working as expected all inputs come in as string...even keyboard nums
-def spot_choice():
+def spot_choice(current_state):
     spot_list = []
-    spot_list.extend(range(1, len(Board.board_state) + 1))
+    spot_list.extend(range(1, len(current_state) + 1))
     spot_list = list(map(str, spot_list))
+    print(spot_list)
     response = get_input("Choose number from 1-9: ")
     if response in spot_list:
         response = int(response)
