@@ -20,8 +20,9 @@ def spot_choice(current_state):
         response = int(response)
     else:
         return 'invalid choice'
-    if spot_exists(Board.board_state, response) and is_occupied(Board.board_state, response) == False:
-        Board.update_state(Board.board_state, User.current_player, response)
+    if spot_exists(current_state, response) and is_occupied(current_state, response) == False:
+        print(current_state, User.current_player, response)
+        Board.update_state(current_state, User.current_player, response)
     else:
         return 'spot is occupied'
     return response

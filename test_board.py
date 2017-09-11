@@ -1,5 +1,5 @@
 import pytest
-from board import Board, spot_exists, is_occupied
+from board import Board, spot_exists, is_occupied, update_state
 
 def test_board_state_is_a_list():
     game_board = Board()
@@ -22,7 +22,7 @@ def test_when_a_user_picks_a_spot_board_is_updated_with_their_spot():
     player1 = 'X'
     spot = 1
     game_board.new_game()
-    game_board.update_state(game_board.board_state, player1, spot)
+    update_state(game_board.board_state, player1, spot)
     assert game_board.board_state == ["X", " ", " ", " ", " ", " ", " ", " ", " "]
 
 def test_when_a_user_picks_a_spot_smaller_then_exists_spot_exists_is_False():
@@ -48,7 +48,7 @@ def test_when_a_user_picks_an_occupied_spot_is_occupied_will_be_True():
     spot = 1
     player1 = 'X'
     game_board.new_game()
-    game_board.update_state(game_board.board_state, player1, spot)
+    update_state(game_board.board_state, player1, spot)
     assert is_occupied(game_board.board_state, spot) == True
 
 def test_current_board_is_displayed():
