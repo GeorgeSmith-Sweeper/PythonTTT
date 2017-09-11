@@ -1,7 +1,7 @@
 from board import Board, update_state
 from unittest.mock import patch
 from unittest import TestCase
-from user import User, spot_choice 
+from user import User, spot_choice, turn_swap 
 
 def test_when_player_is_created_it_has_a_symbol():
     player1 = User("X")
@@ -26,3 +26,12 @@ class TestUserInputs(TestCase):
         game_board.new_game()
         update_state(game_board.board_state, "X", 2)
         self.assertEqual(spot_choice(game_board.board_state), 'spot is occupied') 
+
+def test_when_a_user_finishes_move_it_is_the_opponents_turn():
+    game_board = Board()
+    game_board.new_game()
+    update_state(game_board.board_state, User.current_player, 1)
+    player1 = User("X")
+    player2 = User("O")
+    turn_swap(User.current_player, player2.symbol)
+    assert User.current_player == "O"

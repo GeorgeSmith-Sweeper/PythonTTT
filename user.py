@@ -26,3 +26,9 @@ def spot_choice(current_state):
     return response
 
 #create turn swap function
+def turn_swap(the_current_player, opponent):
+    if the_current_player == User.current_player:
+        User.current_player = opponent
+        return opponent
+    else: 
+        return the_current_player
