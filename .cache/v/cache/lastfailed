@@ -1,5 +1,4 @@
 {
-  "test_user.py::TestUserInputs::test_can_receive_user_input": true,
   "test_user.py::TestUserInputs::test_if_users_move_is_a_num_rtrn_True": true,
   "test_user.py::TestUserInputs::test_if_users_move_is_not_a_number_return_false": true,
   "test_user.py::TestUserInputs::test_users_input_can_update_board": true,
