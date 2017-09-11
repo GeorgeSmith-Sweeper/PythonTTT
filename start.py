@@ -23,4 +23,5 @@ if __name__ == "__main__":
     game_board.new_game() 
     player1 = User("X")
     player2 = User("O")
+    print_board()
     continue_turn_prompt(game_board.board_state, player1.symbol, player2.symbol)
