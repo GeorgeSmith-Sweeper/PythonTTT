@@ -12,20 +12,20 @@ class TestUserInputs(TestCase):
     def test_users_choice_updates_game_board(self, input):
         game_board = Board()
         game_board.new_game()
-        self.assertEqual(spot_choice(game_board.board_state), 1)
-
+        self.assertEqual(spot_choice(game_board.board_state), True)
+    
     @patch('user.get_input', return_value='x')
     def test_user_choice_returns_invalid_if_user_inputs_an_invalid_symbol(self, input):
         game_board = Board()
         game_board.new_game()
-        self.assertEqual(spot_choice(game_board.board_state), 'invalid choice') 
+        self.assertEqual(spot_choice(game_board.board_state), False) 
     
     @patch('user.get_input', return_value='2')
     def test_user_choice_returns_invalid_if_user_inputs_an_invalid_symbol(self, input):
         game_board = Board()
         game_board.new_game()
         update_state(game_board.board_state, "X", 2)
-        self.assertEqual(spot_choice(game_board.board_state), 'spot is occupied') 
+        self.assertEqual(spot_choice(game_board.board_state), False) 
 
 def test_when_a_user_finishes_move_it_is_the_opponents_turn():
     game_board = Board()

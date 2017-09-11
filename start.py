@@ -11,7 +11,7 @@ def continue_turn_prompt(current_state, player1, player2):
     else: 
         spot_choice(current_state)
         print_board()
-        if (User.current_player == player1):
+        if User.current_player == player1:
             turn_swap(User.current_player, player2)
             continue_turn_prompt(current_state, player1, player2)
         else: 
