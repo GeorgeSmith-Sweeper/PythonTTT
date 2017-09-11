@@ -26,3 +26,8 @@ def update_state(current_state, player, spotchoice):
     new_state[spotchoice - 1] = player
     Board.board_state = new_state 
 
+def is_draw(current_state):
+    if " " in current_state:
+        return False
+    else:
+        return True

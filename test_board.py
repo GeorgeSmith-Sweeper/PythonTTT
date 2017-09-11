@@ -1,5 +1,5 @@
 import pytest
-from board import Board, spot_exists, is_occupied, update_state
+from board import Board, spot_exists, is_occupied, update_state, is_draw
 
 def test_board_state_is_a_list():
     game_board = Board()
@@ -50,6 +50,17 @@ def test_when_a_user_picks_an_occupied_spot_is_occupied_will_be_True():
     game_board.new_game()
     update_state(game_board.board_state, player1, spot)
     assert is_occupied(game_board.board_state, spot) == True
+
+def test_game_ends_when_board_is_full():
+    game_board = Board()
+    game_board.board_state = ["X","O","X","O","X","O","X","O","O"]
+    assert is_draw(game_board.board_state) == True
+
+def test_game_continues_if_board_is_not_full():
+    game_board = Board()
+    game_board.board_state = ["O","O"," ","O","X","O","X","O","O"]
+    assert is_draw(game_board.board_state) == False 
+    
 
 def test_current_board_is_displayed():
     game_board = Board()
