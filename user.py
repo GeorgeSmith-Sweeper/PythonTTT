@@ -2,9 +2,9 @@ from board import Board, spot_exists, is_occupied, update_state
 from ui import Ui
 
 class User:
-    # later iterations will not be hardcoded
     current_player = 'X' 
 
+    # players will be able to pick a symbol
     def __init__(self, symbol):
         self.symbol = symbol
 
@@ -17,21 +17,19 @@ def spot_validation(current_state, response):
     spot_list = list(map(str, spot_list))
 
     if response not in spot_list:
-        # add ui error message
         Ui.msg("That spot doesn't exist. Try again.")
         return False
     else:
         response = int(response)
         if is_occupied(current_state, response):
-            # add ui "That spot has already been selected! Pick again."
             Ui.msg("That spot has already been selected! Try again.")
             return False
         else:
             return response
 
-def turn_swap(the_current_player, opponent):
-    if the_current_player == User.current_player:
+def turn_swap(who_moved, opponent):
+    if who_moved == User.current_player:
         User.current_player = opponent
         return User.current_player 
     else: 
-        return the_current_player
+        return who_moved 
