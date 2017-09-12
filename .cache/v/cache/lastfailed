@@ -1,5 +1,5 @@
 {
-  "test_start.py::test_prompt_game_notifies_user_of_a_draw": true,
+  "test_user.py::TestCase": true,
   "test_user.py::TestUserInputs::test_if_users_move_is_a_num_rtrn_True": true,
   "test_user.py::TestUserInputs::test_if_users_move_is_not_a_number_return_false": true,
   "test_user.py::TestUserInputs::test_user_choice_returns_invalid_if_user_inputs_an_invalid_symbol": true,

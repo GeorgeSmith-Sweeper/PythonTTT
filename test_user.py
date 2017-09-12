@@ -1,7 +1,5 @@
 from board import Board, update_state
-from unittest.mock import patch
-from unittest import TestCase
-from user import User, spot_choice, turn_swap 
+from user import User, spot_validation, turn_swap 
 
 def test_when_player_is_created_it_has_a_symbol():
     player1 = User("X")
@@ -10,17 +8,17 @@ def test_when_player_is_created_it_has_a_symbol():
 def test_valid_choice_is_returned():
     game_board = Board()
     game_board.new_game()
-    assert spot_choice(game_board.board_state, "1") == 1
+    assert spot_validation(game_board.board_state, "1") == 1
     
 def test_invalid_symbol_returns_false():
     game_board = Board()
     game_board.new_game()
-    assert spot_choice(game_board.board_state, "x") == False 
+    assert spot_validation(game_board.board_state, "x") == False 
     
 def test_invalid_spot_too_large_returns_false():
     game_board = Board()
     game_board.new_game()
-    assert spot_choice(game_board.board_state, "12") == False
+    assert spot_validation(game_board.board_state, "12") == False
 
 def test_when_a_user_finishes_move_it_is_the_opponents_turn():
     game_board = Board()

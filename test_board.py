@@ -1,5 +1,6 @@
 import pytest
-from board import Board, spot_exists, is_occupied, update_state, is_draw
+import board
+from board import Board, spot_exists, is_occupied, update_state, is_draw, display_board
 
 def test_board_state_is_a_list():
     game_board = Board()
@@ -65,5 +66,5 @@ def test_game_continues_if_board_is_not_full():
 def test_current_board_is_displayed():
     game_board = Board()
     game_board.new_game()
-    assert game_board.display_board() == game_board.board_state[0] + " | " + game_board.board_state[1] + " | " + game_board.board_state[2] + "\n" +"=========" + "\n" + game_board.board_state[3] + " | " + game_board.board_state[4] + " | " + game_board.board_state[5] + "\n" + "=========" + "\n" + game_board.board_state[6] + " | " + game_board.board_state[7] + " | " + game_board.board_state[8] 
+    assert display_board(game_board.board_state) == game_board.board_state[0] + " | " + game_board.board_state[1] + " | " + game_board.board_state[2] + "\n" +"=========" + "\n" + game_board.board_state[3] + " | " + game_board.board_state[4] + " | " + game_board.board_state[5] + "\n" + "=========" + "\n" + game_board.board_state[6] + " | " + game_board.board_state[7] + " | " + game_board.board_state[8] 
 

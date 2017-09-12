@@ -10,12 +10,13 @@ class User:
 def get_input(choice):
     return input(choice)
 
-def spot_choice(current_state, response):
+def spot_validation(current_state, response):
     spot_list = []
     spot_list.extend(range(1, len(current_state) + 1))
     spot_list = list(map(str, spot_list))
 
     if response not in spot_list:
+        # add ui error message
         return False
     else:
         response = int(response)
