@@ -8,12 +8,12 @@ def print_board(current_state):
 
 def start_game(current_state, player1, player2):
     print_board(current_state)
+    
     if is_draw(current_state):
-        # add ui msg for Draw state
         Ui.msg('DRAW. GameOver')
         return 'DRAW. Game Over'
+    
     response = get_input("Enter a number from 1-9: ")
-    # validate
     response = spot_validation(current_state, response)
 
     if response == False:

@@ -1,4 +1,5 @@
 from board import Board, spot_exists, is_occupied, update_state
+from ui import Ui
 
 class User:
     # later iterations will not be hardcoded
@@ -17,11 +18,13 @@ def spot_validation(current_state, response):
 
     if response not in spot_list:
         # add ui error message
+        Ui.msg("That spot doesn't exist. Try again.")
         return False
     else:
         response = int(response)
         if is_occupied(current_state, response):
             # add ui "That spot has already been selected! Pick again."
+            Ui.msg("That spot has already been selected! Try again.")
             return False
         else:
             return response
