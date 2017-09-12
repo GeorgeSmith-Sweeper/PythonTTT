@@ -1,15 +1,16 @@
 from board import Board, is_draw, display_board
 from user import User, spot_validation, turn_swap, get_input
 import board
+from ui import Ui
 
 def print_board(current_state):
-    print(display_board(current_state))
+    Ui.msg(display_board(current_state))
 
 def start_game(current_state, player1, player2):
     print_board(current_state)
     if is_draw(current_state):
         # add ui msg for Draw state
-        print('DRAW. Game Over')
+        Ui.msg('DRAW. GameOver')
         return 'DRAW. Game Over'
     response = get_input("Enter a number from 1-9: ")
     # validate

@@ -1,4 +1,4 @@
 class Ui:
     def msg(message):
-        return message
+        print(message)
 

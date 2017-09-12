@@ -5,10 +5,7 @@ class Board:
         board_area = numrows*numrows
         new_board = [" "] * board_area
         self.board_state = new_board
-'''
-    def display_board(self):
-        return self.board_state[0] + " | " + self.board_state[1] + " | " + self.board_state[2] + "\n" +"=========" + "\n" + self.board_state[3] + " | " + self.board_state[4] + " | " + self.board_state[5] + "\n" + "=========" + "\n" + self.board_state[6] + " | " + self.board_state[7] + " | " + self.board_state[8]
-'''
+
 def spot_exists(current_state, spotChoice):
     if (spotChoice - 1) >= 0 and spotChoice <= len(current_state):
         return True
