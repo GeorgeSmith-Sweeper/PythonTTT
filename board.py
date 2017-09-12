@@ -21,9 +21,9 @@ def is_occupied(current_state, spotChoice):
     else:
         return False 
 
-def update_state(current_state, player, spotchoice):
+def update_state(current_state, player_symbol, spot):
     new_state = current_state
-    new_state[spotchoice - 1] = player
+    new_state[spot - 1] = player_symbol
     Board.board_state = new_state 
 
 def is_draw(current_state):
