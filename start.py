@@ -1,4 +1,4 @@
-from board import Board, EndStates, SpotStates, display_board
+from board import Board, EndStates, SpotStates, BoardState, display_board
 from user import User, spot_validation, turn_swap, get_input
 import board
 from ui import Ui
@@ -21,7 +21,7 @@ def start_game(current_state, player1, player2):
         start_game(current_state, player1, player2)
 
     # update the board state
-    board.update_state(current_state, User.current_player, response)
+    BoardState.update_state(current_state, User.current_player, response)
      
     if User.current_player == player1:
         turn_swap(User.current_player, player2)
