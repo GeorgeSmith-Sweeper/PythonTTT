@@ -6,6 +6,7 @@ class Board:
         new_board = [" "] * board_area
         self.board_state = new_board
 
+# All possible ways a game can end
 class EndStates:
     def win_by_row():
         return None

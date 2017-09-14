@@ -1,5 +1,5 @@
 from board import Board, EndStates, SpotStates, BoardState, display_board
-from user import User, spot_validation, turn_swap, get_input
+from user import User, UserActions, get_input
 import board
 from ui import Ui
 
@@ -14,7 +14,7 @@ def start_game(current_state, player1, player2):
         return 'DRAW. Game Over'
     
     response = get_input("Enter a number from 1-9: ")
-    response = spot_validation(current_state, response)
+    response = UserActions.make_move(current_state, response)
 
     if response == False:
         # add error msg
@@ -24,10 +24,10 @@ def start_game(current_state, player1, player2):
     BoardState.update_state(current_state, User.current_player, response)
      
     if User.current_player == player1:
-        turn_swap(User.current_player, player2)
+        User.switch_current_user(User.current_player, player2)
         start_game(current_state, player1, player2) 
     else:
-        turn_swap(User.current_player, player1)
+        User.switch_current_user(User.current_player, player1)
         start_game(current_state, player1, player2)
 
 if __name__ == "__main__":

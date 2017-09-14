@@ -1,6 +1,6 @@
 from user import User
 from board import Board
-from start import start_game     
+from start import start_game 
 
 def test_prompt_game_notifies_user_of_a_draw():
     game_board = Board()
