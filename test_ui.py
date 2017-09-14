@@ -1,6 +1,5 @@
 import pytest
 from ui import Ui
-from board import Board, update_state
 from unittest.mock import patch
 from unittest import TestCase
 

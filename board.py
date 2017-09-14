@@ -6,28 +6,32 @@ class Board:
         new_board = [" "] * board_area
         self.board_state = new_board
 
-def spot_exists(current_state, spotChoice):
-    if (spotChoice - 1) >= 0 and spotChoice <= len(current_state):
-        return True
-    else:
-        return False
+class EndStates:
+    def win_by_row():
+        return None
 
-def is_occupied(current_state, spot):
-    if current_state[spot - 1] != " ":
-        return True
-    else:
-        return False 
+    def win_by_column():
+        return None
 
-def update_state(current_state, player_symbol, spot):
-    new_state = current_state
-    new_state[spot - 1] = player_symbol
-    Board.board_state = new_state 
+    def win_by_diagonal():
+        return None
 
-def is_draw(current_state):
-    if " " in current_state:
-        return False
-    else:
-        return True
+    def is_draw(current_state):
+        return  " " not in current_state
+
+class SpotStates:
+    def spot_exists(current_state, spotChoice):
+        return (spotChoice - 1) >= 0 and spotChoice <= len(current_state)
+
+    def is_occupied(current_state, spot):
+       return current_state[spot - 1] != " "
+
+class BoardState:
+    def update_state(current_state, player_symbol, spot):
+        new_state = current_state
+        new_state[spot - 1] = player_symbol
+        Board.board_state = new_state 
+
 
 def display_board(current_state):
     return current_state[0] + " | " + current_state[1] + " | " + current_state[2] + "\n" +"=========" + "\n" + current_state[3] + " | " + current_state[4] + " | " + current_state[5] + "\n" + "=========" + "\n" + current_state[6] + " | " + current_state[7] + " | " + current_state[8]

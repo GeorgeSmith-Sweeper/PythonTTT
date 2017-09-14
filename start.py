@@ -1,4 +1,4 @@
-from board import Board, is_draw, display_board
+from board import Board, EndStates, SpotStates, display_board
 from user import User, spot_validation, turn_swap, get_input
 import board
 from ui import Ui
@@ -9,7 +9,7 @@ def print_board(current_state):
 def start_game(current_state, player1, player2):
     print_board(current_state)
     
-    if is_draw(current_state):
+    if EndStates.is_draw(current_state):
         Ui.msg('DRAW. GameOver')
         return 'DRAW. Game Over'
     
