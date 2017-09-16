@@ -34,9 +34,3 @@ class UserActions:
             else:
                 return response
 
-def switch_current_user(who_moved, opponent):
-    if who_moved == User.current_player:
-        User.current_player = opponent
-        return User.current_player 
-    else: 
-        return who_moved 

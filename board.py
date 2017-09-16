@@ -1,6 +1,6 @@
 class Board:
     board_state = []
-
+   
     def new_game(self, numrows=3):
         board_area = numrows*numrows
         new_board = [" "] * board_area
@@ -21,8 +21,8 @@ class EndStates:
         return  " " not in current_state
 
 class SpotStates:
-    def spot_exists(current_state, spotChoice):
-        return (spotChoice - 1) >= 0 and spotChoice <= len(current_state)
+    def spot_exists(current_state, spot):
+        return (spot - 1) >= 0 and spot <= len(current_state)
 
     def is_occupied(current_state, spot):
        return current_state[spot - 1] != " "
