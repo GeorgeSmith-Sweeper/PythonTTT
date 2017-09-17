@@ -1,6 +1,6 @@
 import pytest
 import board
-from board import Board, EndStates, SpotStates, BoardState, display_board
+from board import Board, EndStates, SpotStates, BoardState, WinningCombos, display_board
 
 def test_board_state_is_a_list():
     game_board = Board()
@@ -62,7 +62,34 @@ def test_game_continues_if_board_is_not_full():
     game_board.board_state = ["O","O"," ","O","X","O","X","O","O"]
     assert EndStates.is_draw(game_board.board_state) == False 
     
+def test_win_by_row_returns_possible_row_wins():
+    win_config = WinningCombos(3)
+    win_config.win_by_row() == [
+                                [0, 1, 2], 
+                                [3, 4, 5], 
+                                [6, 7, 8]
+                                ]
 
+def test_win_by_column_returns_possible_column_wins():
+    win_config = WinningCombos(3)
+    win_config.win_by_column(win_config.win_by_row()) == [
+                                                            [0, 3, 6], 
+                                                            [1, 4, 7], 
+                                                            [2, 5, 8]
+                                                         ]
+def test_winning_combos_are_created_for_3x3_board():
+    win_config = WinningCombos(3)
+    win_config.create_winning_combos()
+    assert win_config.winning_combos == [
+                                         [0, 1, 2],
+                                         [3, 4, 5],
+                                         [6, 7, 8],
+                                         [0, 3, 6],
+                                         [1, 4, 7],
+                                         [2, 5, 8],
+                                         [0, 4, 8],
+                                         [2, 4, 6],
+                                        ]
 def test_current_board_is_displayed():
     game_board = Board()
     game_board.new_game()
