@@ -62,10 +62,24 @@ class WinningCombos:
         self.winning_combos.append(diagonal_left_to_right) 
         self.winning_combos.append(diagonal_right_to_left) 
 
-class EndStates:        
+class EndStates:
     def is_draw(current_state):
         return  " " not in current_state
+    # remember a win can happen with a full board...
 
+    def did_a_player_win(current_state, current_player, win_combos):
+        # loop through combos list 
+        for spot_list in range(0, len(win_combos)):
+            win = True
+            print(spot_list)
+            for spot in range(0, (int(len(win_combos) / 2)) - 1):
+                print(current_state[win_combos[spot_list][spot]])
+                if current_state[win_combos[spot_list][spot]] != current_player:
+                    win = False 
+            if win:
+                return True
+        return False
+        
 class SpotStates:
     def spot_exists(current_state, spot):
         return (spot - 1) >= 0 and spot <= len(current_state)

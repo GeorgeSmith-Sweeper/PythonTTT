@@ -54,12 +54,20 @@ def test_when_a_user_picks_an_occupied_spot_is_occupied_will_be_True():
 
 def test_game_ends_when_board_is_full():
     game_board = Board()
-    game_board.board_state = ["X","O","X","O","X","O","X","O","O"]
+    game_board.board_state = [
+                                "X","O","X",
+                                "O","X","O",
+                                "X","O","O"
+                             ]
     assert EndStates.is_draw(game_board.board_state) == True
 
 def test_game_continues_if_board_is_not_full():
     game_board = Board()
-    game_board.board_state = ["O","O"," ","O","X","O","X","O","O"]
+    game_board.board_state = [
+                                "O","O"," ",
+                                "O","X","O",
+                                "X","O","O"
+                             ]
     assert EndStates.is_draw(game_board.board_state) == False 
     
 def test_win_by_row_returns_possible_row_wins():
@@ -90,6 +98,39 @@ def test_winning_combos_are_created_for_3x3_board():
                                          [0, 4, 8],
                                          [2, 4, 6],
                                         ]
+    
+def test_game_ends_if_user_occupies_3_in_column():
+    win_config = WinningCombos(3)
+    win_config.create_winning_combos()
+    game_board = Board()
+    game_board.board_state = [
+                                "X","O","X",
+                                "X"," "," ",
+                                "X"," ","X"
+                             ]
+    assert EndStates.did_a_player_win(game_board.board_state, 'X', win_config.winning_combos) == True
+def test_game_ends_if_user_occupies_3_in_row():
+    win_config = WinningCombos(3)
+    win_config.create_winning_combos()
+    game_board = Board()
+    game_board.board_state = [
+                                "X","X","X",
+                                "O"," "," ",
+                                "O"," ","X"
+                             ]
+    assert EndStates.did_a_player_win(game_board.board_state, 'X', win_config.winning_combos) == True
+    
+def test_game_ends_if_user_occupies_3_in_diagonal():
+    win_config = WinningCombos(3)
+    win_config.create_winning_combos()
+    game_board = Board()
+    game_board.board_state = [
+                                "X","O","O",
+                                "O","X"," ",
+                                "O"," ","X"
+                             ]
+    assert EndStates.did_a_player_win(game_board.board_state, 'X', win_config.winning_combos) == True
+
 def test_current_board_is_displayed():
     game_board = Board()
     game_board.new_game()
