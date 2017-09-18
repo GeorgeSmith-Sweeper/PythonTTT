@@ -4,7 +4,6 @@ from ui import Ui
 class User:
     current_player = 'X' 
 
-    # players will be able to pick a symbol
     def __init__(self, symbol):
         self.symbol = symbol
 
@@ -12,10 +11,6 @@ class User:
         if who_moved == User.current_player:
             User.current_player = opponent
             return User.current_player 
-        else: who_moved 
-
-def get_input(choice):
-    return input(choice)
 
 class UserActions:   
     def make_move(current_state, response):

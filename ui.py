@@ -3,7 +3,11 @@ import math
 class Ui:
     def msg(message):
         print(message)
-    
+
+class CommandLinePrompt:
+    def get_input(choice):
+        return input(choice)
+
 class BoardPresenter:
     def display_terminal_board(current_board_state):
         cbs = current_board_state

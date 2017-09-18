@@ -7,7 +7,6 @@ class Board:
         new_board = [""] * board_area
         self.board_state = new_board
 
-# All possible ways a game can end
 class WinningCombos:
     def __init__(self, size):
         self.size = size
@@ -65,10 +64,9 @@ class WinningCombos:
 
 class EndStates:
     def is_draw(current_state):
-        return  "" not in current_state
+        return "" not in current_state
 
     def did_a_player_win(current_state, current_player, win_combos):
-        # loop through combos list 
         for spot_list in range(0, len(win_combos)):
             win = True
             for spot in range(0, (int(len(win_combos) / 2)) - 1):

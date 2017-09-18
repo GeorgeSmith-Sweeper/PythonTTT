@@ -1,7 +1,7 @@
 from board import Board, EndStates, SpotStates, BoardState, WinningCombos 
-from user import User, UserActions, get_input
+from user import User, UserActions
 import board
-from ui import Ui, BoardPresenter
+from ui import Ui, BoardPresenter, CommandLinePrompt
 
 def start_game(current_state, player1, player2):
     Ui.msg(BoardPresenter.display_terminal_board(current_state))
@@ -10,11 +10,10 @@ def start_game(current_state, player1, player2):
         Ui.msg('DRAW. GameOver')
         return True
      
-    response = get_input("Enter a number from 1-9: ") 
+    response = CommandLinePrompt.get_input("Enter a number from 1-9: ") 
     response = UserActions.make_move(current_state, response)
      
     if response == False:
-        # add error msg
         start_game(current_state, player1, player2)
 
     # update the board state
