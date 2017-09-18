@@ -1,13 +1,10 @@
-from board import Board, EndStates, SpotStates, BoardState, WinningCombos, display_board
+from board import Board, EndStates, SpotStates, BoardState, WinningCombos 
 from user import User, UserActions, get_input
 import board
-from ui import Ui
-
-def print_board(current_state):
-    Ui.msg(display_board(current_state))
+from ui import Ui, BoardPresenter
 
 def start_game(current_state, player1, player2):
-    print_board(current_state)
+    Ui.msg(BoardPresenter.display_terminal_board(current_state))
     
     if EndStates.is_draw(current_state):
         Ui.msg('DRAW. GameOver')
@@ -18,23 +15,21 @@ def start_game(current_state, player1, player2):
      
     if response == False:
         # add error msg
-        Ui.msg("Invalid spot")
         start_game(current_state, player1, player2)
 
     # update the board state
     BoardState.update_state(current_state, User.current_player, response)
      
     if EndStates.did_a_player_win(current_state, User.current_player, win_config.winning_combos):
+        Ui.msg(BoardPresenter.display_terminal_board(current_state)) 
         Ui.msg('Game Over: ' + User.current_player + ' WINS!')
-        print_board(current_state) 
         return True
 
     if User.current_player == player1:
         User.switch_current_user(User.current_player, player2)
-        start_game(current_state, player1, player2) 
     else:
         User.switch_current_user(User.current_player, player1)
-        start_game(current_state, player1, player2)
+    start_game(current_state, player1, player2)
 
 if __name__ == "__main__":
     game_board = Board()

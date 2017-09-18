@@ -3,7 +3,7 @@ class Board:
    
     def new_game(self, numrows=3):
         board_area = numrows*numrows
-        new_board = [" "] * board_area
+        new_board = [""] * board_area
         self.board_state = new_board
 
 # All possible ways a game can end
@@ -64,7 +64,7 @@ class WinningCombos:
 
 class EndStates:
     def is_draw(current_state):
-        return  " " not in current_state
+        return  "" not in current_state
     # remember a win can happen with a full board...
 
     def did_a_player_win(current_state, current_player, win_combos):
@@ -83,15 +83,10 @@ class SpotStates:
         return (spot - 1) >= 0 and spot <= len(current_state)
 
     def is_occupied(current_state, spot):
-       return current_state[spot - 1] != " "
+       return current_state[spot - 1] != ""
 
 class BoardState:
     def update_state(current_state, player_symbol, spot):
         new_state = current_state
         new_state[spot - 1] = player_symbol
         Board.board_state = new_state 
-
-
-def display_board(current_state):
-    return current_state[0] + " | " + current_state[1] + " | " + current_state[2] + "\n" +"=========" + "\n" + current_state[3] + " | " + current_state[4] + " | " + current_state[5] + "\n" + "=========" + "\n" + current_state[6] + " | " + current_state[7] + " | " + current_state[8]
-

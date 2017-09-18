@@ -1,6 +1,6 @@
 import pytest
 import board
-from board import Board, EndStates, SpotStates, BoardState, WinningCombos, display_board
+from board import Board, EndStates, SpotStates, BoardState, WinningCombos 
 
 def test_board_state_is_a_list():
     game_board = Board()
@@ -9,12 +9,21 @@ def test_board_state_is_a_list():
 def test_when_a_user_begins_a_game_a_3X3_board_is_created():
     game_board = Board()
     game_board.new_game()
-    assert game_board.board_state == [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    assert game_board.board_state == [
+                                        "", "", "", 
+                                        "", "", "", 
+                                        "", "", ""
+                                     ]
 
 def test_when_a_user_supplies_4_rows_a_4x4_board_is_created():
     game_board = Board()
     game_board.new_game(4)
-    assert game_board.board_state == [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+    assert game_board.board_state == [
+                                        "", "", "", "", 
+                                        "", "", "", "", 
+                                        "", "", "", "", 
+                                        "", "", "", ""
+                                     ]
 
 # must test 'sad' path for new_game by passing in a value less then 3
 
@@ -24,7 +33,11 @@ def test_when_a_user_picks_a_spot_board_is_updated_with_their_spot():
     spot = 1
     game_board.new_game()
     BoardState.update_state(game_board.board_state, player1, spot)
-    assert game_board.board_state == ["X", " ", " ", " ", " ", " ", " ", " ", " "]
+    assert game_board.board_state == [
+                                        "X", "", "", 
+                                        "", "", "", 
+                                        "", "", ""
+                                     ]
 
 def test_when_a_user_picks_a_spot_smaller_then_exists_spot_exists_is_False():
     game_board = Board()
@@ -64,7 +77,7 @@ def test_game_ends_when_board_is_full():
 def test_game_continues_if_board_is_not_full():
     game_board = Board()
     game_board.board_state = [
-                                "O","O"," ",
+                                "O","O","",
                                 "O","X","O",
                                 "X","O","O"
                              ]
@@ -105,8 +118,8 @@ def test_game_ends_if_user_occupies_3_in_column():
     game_board = Board()
     game_board.board_state = [
                                 "X","O","X",
-                                "X"," "," ",
-                                "X"," ","X"
+                                "X","","",
+                                "X","","X"
                              ]
     assert EndStates.did_a_player_win(game_board.board_state, 'X', win_config.winning_combos) == True
 
@@ -116,8 +129,8 @@ def test_game_ends_if_user_occupies_3_in_row():
     game_board = Board()
     game_board.board_state = [
                                 "X","X","X",
-                                "O"," "," ",
-                                "O"," ","X"
+                                "O","","",
+                                "O","","X"
                              ]
     assert EndStates.did_a_player_win(game_board.board_state, 'X', win_config.winning_combos) == True
     
@@ -127,13 +140,7 @@ def test_game_ends_if_user_occupies_3_in_diagonal():
     game_board = Board()
     game_board.board_state = [
                                 "X","O","O",
-                                "O","X"," ",
-                                "O"," ","X"
+                                "O","X","",
+                                "O","","X"
                              ]
     assert EndStates.did_a_player_win(game_board.board_state, 'X', win_config.winning_combos) == True
-
-def test_current_board_is_displayed():
-    game_board = Board()
-    game_board.new_game()
-    assert display_board(game_board.board_state) == game_board.board_state[0] + " | " + game_board.board_state[1] + " | " + game_board.board_state[2] + "\n" +"=========" + "\n" + game_board.board_state[3] + " | " + game_board.board_state[4] + " | " + game_board.board_state[5] + "\n" + "=========" + "\n" + game_board.board_state[6] + " | " + game_board.board_state[7] + " | " + game_board.board_state[8] 
-
