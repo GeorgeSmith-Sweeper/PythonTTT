@@ -1,6 +1,7 @@
 class Board:
-    board_state = []
-   
+    def __init__(self):
+        self.board_state = []
+
     def new_game(self, numrows=3):
         board_area = numrows*numrows
         new_board = [""] * board_area
@@ -65,7 +66,6 @@ class WinningCombos:
 class EndStates:
     def is_draw(current_state):
         return  "" not in current_state
-    # remember a win can happen with a full board...
 
     def did_a_player_win(current_state, current_player, win_combos):
         # loop through combos list 

@@ -27,6 +27,3 @@ class BoardPresenter:
         full_board.pop()
         full_board = ''.join(full_board)
         return full_board
-'''
-Ui.msg(BoardPresenter.display_terminal_board(["X", "O", "", "", "X", "", "", "", "",]))
-'''
