@@ -71,9 +71,7 @@ class EndStates:
         # loop through combos list 
         for spot_list in range(0, len(win_combos)):
             win = True
-            print(spot_list)
             for spot in range(0, (int(len(win_combos) / 2)) - 1):
-                print(current_state[win_combos[spot_list][spot]])
                 if current_state[win_combos[spot_list][spot]] != current_player:
                     win = False 
             if win:

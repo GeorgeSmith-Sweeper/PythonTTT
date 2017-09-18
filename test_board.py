@@ -109,6 +109,7 @@ def test_game_ends_if_user_occupies_3_in_column():
                                 "X"," ","X"
                              ]
     assert EndStates.did_a_player_win(game_board.board_state, 'X', win_config.winning_combos) == True
+
 def test_game_ends_if_user_occupies_3_in_row():
     win_config = WinningCombos(3)
     win_config.create_winning_combos()
