@@ -98,6 +98,14 @@ def test_win_by_column_returns_possible_column_wins():
                                                             [1, 4, 7], 
                                                             [2, 5, 8]
                                                          ]
+def test_win_by_column_returns_possible_LTR_diagonal_win():
+    win_config = WinningCombos(3)
+    win_config.diagonal_left_to_right_win(win_config.win_by_row()) == [0, 4, 8]
+
+def test_win_by_column_returns_possible_RTL_diagonal_win():
+    win_config = WinningCombos(3)
+    win_config.diagonal_right_to_left_win(win_config.win_by_row()) == [2, 4, 6]
+
 def test_winning_combos_are_created_for_3x3_board():
     win_config = WinningCombos(3)
     win_config.create_winning_combos()
