@@ -1,5 +1,5 @@
 from board import Board, EndStates, SpotStates, BoardState, WinningCombos 
-from user import User, UserActions
+from user import User, UserActions, UserChoice
 import board
 from ui import Ui, BoardPresenter, CommandLinePrompt
 
@@ -37,7 +37,45 @@ def start_game():
     player1 = User("X")
     player2 = User("O")
 '''
+def start_game():
+    game_board = Board()
+    game_board.new_game(3) 
+    win_config = WinningCombos(3)
+    win_config.create_winning_combos()
+    player1 = User("X")
+    player2 = User("O")
+    
+    game_over = False
+    while game_over is False:
+        spot_choice = UserChoice.return_valid_choice(game_board.board_state)
+       
+    ''' 
+    if EndStates.is_draw(game_board.board_state):
+        Ui.msg('DRAW. GameOver')
+        return True
+     
+    response = CommandLinePrompt.get_input("Enter a number from 1-9: ") 
+    response = UserActions.make_move(game_board.board_state, response)
+     
+    if response == False:
+        start_game(game_board.board_state, player1, player2)
 
+    BoardState.update_state(game_board.board_state, User.current_player, response)
+     
+    if EndStates.did_a_player_win(game_board.board_state, User.current_player, win_config.winning_combos):
+        Ui.msg(BoardPresenter.display_terminal_board(game_board.board_state)) 
+        Ui.msg('Game Over: ' + User.current_player + ' WINS!')
+        return True
+
+    if User.current_player == player1:
+        User.switch_current_user(User.current_player, player2)
+    else:
+        User.switch_current_user(User.current_player, player1)
+    start_game(game_board.board_state, player1, player2)
+'''
+if __name__ == "__main__":
+    start_game()
+'''
 def start_game(current_state, player1, player2):
     Ui.msg(BoardPresenter.display_terminal_board(current_state))
     
@@ -72,3 +110,4 @@ if __name__ == "__main__":
     player1 = User("X")
     player2 = User("O")
     start_game(game_board.board_state, player1.symbol, player2.symbol)
+'''
