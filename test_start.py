@@ -1,6 +1,7 @@
 from user import User
 from board import Board
-from start import start_game 
+from start import human_v_human 
+
 '''
 def test_prompt_game_notifies_user_of_a_draw():
     game_board = Board()
@@ -24,3 +25,5 @@ def test_prompt_game_notifies_user_of_a_win():
     player2 = User("O")
     assert start_game(game_board.board_state, player1.symbol, player2.symbol) == True 
 '''
+
+

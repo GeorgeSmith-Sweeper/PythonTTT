@@ -28,7 +28,16 @@ class UserActions:
                 return False
             else:
                 return response
+            
+    def pick_game_mode():
+        valid_mode = False
+        while valid_mode is False:
+            mode = CommandLinePrompt.get_input("Please select a game mode: 1) Human V Human 2) Human V Computer 3) Computer V Computer: ")
+            if mode == "1" or mode == "2" or mode == "3":
+                valid_mode = True
+                return mode
 
+'''
 class UserChoice:
     def validate_this_spot(current_state, spot):
 
@@ -43,12 +52,11 @@ class UserChoice:
         return True
     
     def check_if_occupied(current_state, spot_choice):
-        while True:
-            if SpotStates.is_occupied(current_state, spot_choice):
-                return spot_choice
+        while SpotStates.is_occupied(current_state, spot_choice)
+                Ui.msg("That spot is occupied, please pick again!") 
             else:
-                Ui.msg("That spot is occupied, please pick again!")
-       
+                return spot_choice 
+
     def check_if_spot_exists(current_state, user_spot_choice):
         spot_list = []
         spot_list.extend(range(1, len(current_state) + 1))
@@ -60,7 +68,9 @@ class UserChoice:
         while True:
             user_spot_choice = int(CommandLinePrompt.get_input("Enter a number between 1-9: "))
             try:
-                self.check_if_spot_exists(current_state, user_spot_choice)
+                UserChoice.check_if_spot_exists(current_state, user_spot_choice)
                 return user_spot_choice 
             except ValueError:
                 Ui.msg("That is not a valid spot. Please pick again!")
+                self.return_valid_choice(current_state)
+'''
