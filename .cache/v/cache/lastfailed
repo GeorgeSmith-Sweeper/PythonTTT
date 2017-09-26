@@ -1,4 +1,5 @@
 {
+  "test_start.py": true,
   "test_start.py::test_prompt_game_notifies_user_of_a_draw": true,
   "test_start.py::test_prompt_game_notifies_user_of_a_win": true,
   "test_user.py::Test::test_selecting_1_chooses_the_first_game_mode": true,
