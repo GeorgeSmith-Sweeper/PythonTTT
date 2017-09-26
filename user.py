@@ -12,7 +12,6 @@ class User:
             User.current_player = opponent
             return User.current_player 
 
-#Original version
 class UserActions:   
     def make_move(current_state, response):
         spot_list = []
