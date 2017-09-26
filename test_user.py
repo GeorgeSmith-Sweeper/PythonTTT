@@ -3,7 +3,19 @@ from user import User, UserActions
 from unittest import TestCase
 from unittest.mock import patch
 
-# Original version
+class TestPickGameMode(TestCase):
+    @patch('ui.CommandLinePrompt.get_input', return_value="1")
+    def test_user_selects_first_option(self, input):
+        self.assertEqual(UserActions.pick_game_mode(), "1")
+    
+    @patch('ui.CommandLinePrompt.get_input', return_value="2")
+    def test_user_selects_first_option(self, input):
+        self.assertEqual(UserActions.pick_game_mode(), "2")
+    
+    @patch('ui.CommandLinePrompt.get_input', return_value="3")
+    def test_user_selects_first_option(self, input):
+        self.assertEqual(UserActions.pick_game_mode(), "3")
+    
 def test_when_player_is_created_it_has_a_symbol():
     player1 = User("X")
     assert player1.symbol == "X" 
