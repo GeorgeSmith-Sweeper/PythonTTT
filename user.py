@@ -12,6 +12,7 @@ class User:
             User.current_player = opponent
             return User.current_player 
 
+#Original version
 class UserActions:   
     def make_move(current_state, response):
         spot_list = []
@@ -28,7 +29,7 @@ class UserActions:
                 return False
             else:
                 return response
-            
+     
     def pick_game_mode():
         valid_mode = False
         while valid_mode is False:
@@ -37,40 +38,3 @@ class UserActions:
                 valid_mode = True
                 return mode
 
-'''
-class UserChoice:
-    def validate_this_spot(current_state, spot):
-
-        if SpotStates.spot_exists(current_state, spot) is False:
-            Ui.msg("That spot is outside of the board range.")
-            return False
-
-        if SpotStates.is_occupied(current_state, spot) is False:
-            Ui.msg("That spot is occupied. Try again!")
-            return False
-        
-        return True
-    
-    def check_if_occupied(current_state, spot_choice):
-        while SpotStates.is_occupied(current_state, spot_choice)
-                Ui.msg("That spot is occupied, please pick again!") 
-            else:
-                return spot_choice 
-
-    def check_if_spot_exists(current_state, user_spot_choice):
-        spot_list = []
-        spot_list.extend(range(1, len(current_state) + 1))
-        spot_list = list(map(str, spot_list))
-        if user_spot_choice not in spot_list:
-            raise ValueError
-       
-    def return_valid_choice(current_state):
-        while True:
-            user_spot_choice = int(CommandLinePrompt.get_input("Enter a number between 1-9: "))
-            try:
-                UserChoice.check_if_spot_exists(current_state, user_spot_choice)
-                return user_spot_choice 
-            except ValueError:
-                Ui.msg("That is not a valid spot. Please pick again!")
-                self.return_valid_choice(current_state)
-'''
