@@ -1,4 +1,5 @@
 {
+  "test_game_config.py": true,
   "test_start.py::TestBeginGame": true,
   "test_start.py::TestBeginGame::test_human_v_human": true,
   "test_start.py::test_prompt_game_notifies_user_of_a_draw": true,
