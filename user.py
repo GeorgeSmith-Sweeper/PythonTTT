@@ -1,5 +1,5 @@
 from board import Board, SpotStates 
-from ui import Ui
+from ui import Ui, CommandLinePrompt
 
 class User:
     current_player = 'X' 
@@ -28,4 +28,12 @@ class UserActions:
                 return False
             else:
                 return response
+     
+    def pick_game_mode():
+        valid_mode = False
+        while valid_mode is False:
+            mode = CommandLinePrompt.get_input("Please select a game mode: 1) Human V Human 2) Human V Computer 3) Computer V Computer: ")
+            if mode == "1" or mode == "2" or mode == "3":
+                valid_mode = True
+                return mode
 

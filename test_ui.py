@@ -13,15 +13,15 @@ def test_user_is_displayed_a_3x3_grid_with_place_holders():
                             "", "", "",
                             "", "", "",
                           ]
-    s = ('1 | 2 | 3'
-         '\n'
-         '_________'
-         '\n'
-         '4 | 5 | 6'
-         '\n'
-         '_________'
-         '\n'
-         '7 | 8 | 9'
-         '\n'
-        )
-    assert BoardPresenter.display_terminal_board(current_board_state) == s
+    board_string = ('1 | 2 | 3'
+                    '\n'
+                    '_________'
+                    '\n'
+                    '4 | 5 | 6'
+                    '\n'
+                    '_________'
+                    '\n'
+                    '7 | 8 | 9'
+                    '\n'
+                    )
+    assert BoardPresenter.display_terminal_board(current_board_state) == board_string
