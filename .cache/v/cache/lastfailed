@@ -1,4 +1,5 @@
 {
+  "test_game_config.py::TestUserModeSelection::test_a_users_selection_is_returned": true,
   "test_game_config.py::test_a_users_selection_is_returned": true,
   "test_start.py::TestBeginGame": true,
   "test_start.py::TestBeginGame::test_human_v_human": true,
