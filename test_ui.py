@@ -1,5 +1,5 @@
 import pytest
-from ui import Ui, GameModeOptions
+from ui import Ui, GameModeOptions, LanguageModeOptions
 from unittest.mock import patch
 from unittest import TestCase
 
@@ -20,3 +20,16 @@ def test_game_mode_options_displays_three_options_when_called():
                      )
 
     GameModeOptions.show_options == options_string 
+
+
+def test_language_options_gives_a_choice_btwn_french_and_english():
+    options_string = ("\n"
+                      "Would you like play in English or French?" 
+                      "\n"
+                      "1) English"
+                      "\n"
+                      "2) French"
+                      "\n"
+                     )
+    LanguageModeOptions.show_options == options_string
+

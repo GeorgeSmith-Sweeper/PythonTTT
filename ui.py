@@ -19,3 +19,15 @@ class GameModeOptions:
                           '\n'
                           )
         return options_string 
+
+class LanguageModeOptions:
+    def show_options():
+        options_string = ('\n'
+                          'Would you like play in English or French?'
+                          '\n'
+                          '1) English'
+                          '\n'
+                          '2) French'
+                          '\n'
+                          )
+        return options_string 
