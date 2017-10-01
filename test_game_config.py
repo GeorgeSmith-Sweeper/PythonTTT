@@ -1,9 +1,31 @@
 from unittest.mock import patch
 from unittest import TestCase
 import pytest
-from game_config import GameModePrompt, LanguageModePrompt, GameModeValidation, LanguageModeValidation,  GameConfig 
-import ui
+from ui import LANGUAGE_MODE_STRING, GAME_MODE_STRING
+from game_config import SetUpPrompts, config
 
+class TestUserLanguageSelection(TestCase):    
+    @patch('ui.CommandLinePrompt.get_input', return_value='2')
+    def test_a_players_selection_is_returned(self, input):
+        language_setup = {
+                'question': { 
+                    'Language': LANGUAGE_MODE_STRING,
+                    },
+                'valid_choices': {
+                    'Language': ['1', '2'],
+                    }
+                }
+        setup = SetUpPrompts()
+        setup.run_set_up(language_setup)
+        self.assertEqual(config["Language"], '2')
+
+'''
+    @patch('ui.CommandLinePrompt.get_input', return_value='1') 
+    def test_the_users_input_is_returned_if_selection_is_valid(self, input):
+        setup = SetUpPrompts()
+        response = setup.ask_user_questions(LanguageModeOptions)
+        self.assertEqual(setup.validate_choice(response), '1')
+from game_config import GameModePrompt, LanguageModePrompt, GameModeValidation, LanguageModeValidation,  GameConfig 
 class TestUserModeSelection(TestCase):
     
     @patch('game_config.GameModePrompt.ask_user_questions', return_value='1')
@@ -16,10 +38,9 @@ class TestUserModeSelection(TestCase):
     def test_a_players_selection_is_returned(self, input):
         self.assertEqual(GameModePrompt.ask_user_questions(), '1')
     
-def test_an_invalid_selection_returns_ValueError():
+def test_an_invalid_selection_returns_False():
     mode_choice = GameModeValidation('4')
-    with pytest.raises(ValueError):
-        mode_choice.validate()
+    mode_choice.validate() == False
 
 class TestUserLanguageSelection(TestCase):
     
@@ -33,7 +54,8 @@ class TestUserLanguageSelection(TestCase):
     def test_a_players_selection_is_returned(self, input):
         self.assertEqual(LanguageModePrompt.ask_user_questions(), '1')
     
-def test_an_invalid_selection_returns_ValueError():
+def test_an_invalid_selection_returns_False():
     mode_choice = LanguageModeValidation('4')
-    with pytest.raises(ValueError):
-        mode_choice.validate()
+    mode_choice.validate() == False
+
+'''
