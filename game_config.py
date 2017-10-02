@@ -14,17 +14,20 @@ SET_UP = {
 config = {"Language": None}
 
 class SetUpPrompts():
+
     def ask_user_questions(self, question, valid_choices):
         mode_selected = CommandLinePrompt.get_input(question)
         if self.validate_choice(mode_selected, valid_choices):
             return mode_selected
+        else:
+            self.ask_user_questions(question, valid_choices)
 
     def validate_choice(self, choice, valid_choices):
         if choice in valid_choices:
             return choice
 
     def run_set_up(self, set_up):
-        config_options = ['Language']
+        config_options = ['Language', 'Game_Mode']
         for option in config_options:
             config[option] = self.ask_user_questions(set_up['question'][option], set_up['valid_choices'][option])
 
