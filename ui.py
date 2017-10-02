@@ -54,11 +54,9 @@ LANGUAGE_MODE_STRING = ('\n'
                         )
 
 PLAYER1_SYMBOL_STRING = ('\n'
-                         'Player 1, please select your symbol' 
-                         '\n'
+                         'Player 1, please select your symbol: ' 
                          )
 
 PLAYER2_SYMBOL_STRING = ('\n'
-                         'Player 2 please select your symbol'
-                         '\n'
+                         'Player 2 please select your symbol: '
                          )

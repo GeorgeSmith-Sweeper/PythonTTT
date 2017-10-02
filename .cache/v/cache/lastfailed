@@ -1,7 +1,10 @@
 {
+  "test_game_config.py::TestPlayersSymbolChoice": true,
   "test_game_config.py::TestUserLanguageSelection::test_the_users_input_is_returned_if_selction_is_valid": true,
   "test_game_config.py::TestUserLanguageSelection::test_the_users_input_is_returned_if_selection_is_valid": true,
   "test_game_config.py::TestUserModeSelection::test_a_users_selection_is_returned": true,
+  "test_game_config.py::TestUserSymbolSelection::test_player2_selection_is_returned": true,
+  "test_game_config.py::test__users_symbol_can_not_be_a_space": true,
   "test_game_config.py::test_a_users_selection_is_returned": true,
   "test_start.py::TestBeginGame": true,
   "test_start.py::TestBeginGame::test_human_v_human": true,
